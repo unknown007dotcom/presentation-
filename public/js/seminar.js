@@ -110,6 +110,10 @@
       default:
         inner = head(s, num);
     }
+    // one image inside the section that carries it
+    if (s.img) {
+      inner += `<figure class="sec-fig rv"><img src="/${s.img}" alt="${esc(s.imgCap || s.title)}" loading="lazy" /><figcaption>${esc(s.imgCap || '')}</figcaption></figure>`;
+    }
     // distribute the live animated model into its related section
     if (s.live) inner += `<p class="live-kicker rv">${esc(LIVE_TITLES[deck.slug] || 'Live model')}</p>${liveBand(deck.slug).replace('class="lv-stage"', 'class="lv-stage rv"')}`;
     return `<section class="sem-section${alt}" id="sec-${i}"><div class="sem-wrap">${inner}</div></section>`;
@@ -215,7 +219,7 @@
     const closing = rest.find((s) => s.layout === 'end');
 
     $('#sem-subject').textContent = deck.subject;
-    $('#sem-minutes').textContent = `≈ ${deck.minutes.replace(' min', '')} min talk`;
+    $('#sem-topic').textContent = deck.title;
 
     const kw = (deck.theme.keywords || []).map((k) => `<span>${esc(k)}</span><i>✦</i>`).join('');
 
@@ -253,7 +257,6 @@
       html += sectionFor(s, k + 1);
     });
 
-    html += galleryHtml();
     html += `
       <section class="sem-close">
         <div class="sem-wrap">
@@ -277,29 +280,6 @@
     initChrome();
   }
 
-  /* ---------------- gallery ---------------- */
-  function galleryHtml() {
-    if (!deck.gallery || !deck.gallery.length) return '';
-    return `
-      <section class="sem-section alt" id="sec-gallery">
-        <div class="sem-wrap">
-          <p class="sem-sec-kicker rv">${esc(deck.subject)}</p>
-          <h2 class="sem-sec-title rv">Visual gallery</h2>
-          <div class="gal-grid">
-            ${deck.gallery
-              .map(
-                (g) => `
-              <figure class="gal-card rv">
-                <div class="gal-img"><img src="/${g.image}" alt="${esc(g.caption)}" loading="lazy" /></div>
-                <figcaption>${esc(g.caption)}</figcaption>
-              </figure>`
-              )
-              .join('')}
-          </div>
-        </div>
-      </section>`;
-  }
-
   /* ---------------- per-theme signature props ---------------- */
   function addSignature() {
     const slug = deck.slug;
@@ -315,8 +295,8 @@
       );
     }
     if (slug === 'parkinsons-disease') {
-      $('#sem-minutes').insertAdjacentHTML(
-        'beforebegin',
+      $('.sem-top').insertAdjacentHTML(
+        'beforeend',
         `<span class="mini-ecg" aria-hidden="true"><svg viewBox="0 0 120 24" fill="none"><path class="lv-ecg" d="M0 12 h28 l4 -8 l4 14 l4 -6 h18 l3 -5 l3 7 l3 -5 l3 5 l3 -3 h47" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/></svg></span>`
       );
     }

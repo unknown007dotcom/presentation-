@@ -77,6 +77,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Core principles — effort',
+        img: 'images/body-mechanics/web-2.png',
+        imgCap: 'Bed positions: work at the right height — slide, don’t drag.',
         items: [
           { t: 'Use large muscle groups', d: 'Thighs and hips are stronger than the back.' },
           { t: 'Push, roll or slide — don’t lift', d: 'Friction reduction beats brute force.' },
@@ -122,6 +124,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Common errors & their cost',
+        img: 'images/body-mechanics/ai-3.jpg',
+        imgCap: 'The lumbar curve every lift should protect.',
         items: [
           { t: 'Lifting with a rounded back', d: '→ lumbar strain, disc injury.' },
           { t: 'Twisting while carrying', d: '→ shearing force on vertebrae.' },
@@ -192,6 +196,8 @@ const SEMINARS = [
       {
         layout: 'grid',
         title: 'Physiological factors',
+        img: 'images/body-alignment/ai-3.jpg',
+        imgCap: 'Daily movement is medicine for alignment.',
         cards: [
           { t: 'Musculoskeletal health', d: 'Muscle strength, tone and joint integrity enable movement.' },
           { t: 'Nervous system integrity', d: 'Coordinates posture, balance and voluntary movement.' },
@@ -202,6 +208,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Psychological factors',
+        img: 'images/body-alignment/web-2.jpg',
+        imgCap: 'Aids and confidence extend the will to move.',
         items: [
           { t: 'Motivation', d: 'The will to move decides recovery effort.' },
           { t: 'Fear', d: 'Fear of pain or falling freezes movement.' },
@@ -345,6 +353,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Vertical mobility, in both directions',
+        img: 'images/social-mobility/web-2.jpg',
+        imgCap: 'Graduation — a classic upward step.',
         items: [
           { t: 'Upward mobility', d: 'Education, promotion, entrepreneurship lift status.' },
           { t: 'Downward mobility', d: 'Job loss, illness or stigma lower status.' },
@@ -362,6 +372,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Factors affecting social mobility',
+        img: 'images/social-mobility/ai-3.jpg',
+        imgCap: 'Cities stack ladders of opportunity.',
         items: [
           { t: 'Education', d: 'The strongest engine of upward mobility.' },
           { t: 'Economy & industrialization', d: 'New occupations open new ladders.' },
@@ -496,6 +508,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Attachment — the emotional foundation',
+        img: 'images/emotional-development/web-2.jpg',
+        imgCap: 'Comfort teaches the nervous system to calm.',
         items: [
           { t: 'Bowlby & Ainsworth', d: 'A responsive caregiver becomes the secure base.' },
           { t: 'Security → exploration', d: 'Safe infants explore, learn and regulate better.' },
@@ -517,6 +531,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Factors shaping emotional development',
+        img: 'images/emotional-development/ai-3.jpg',
+        imgCap: 'Naming feelings together builds regulation.',
         items: [
           { t: 'Temperament', d: 'Inborn reactivity and self-soothing styles.' },
           { t: 'Parenting style', d: 'Warm, consistent responses build regulation.' },
@@ -616,6 +632,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Adolescence (12–18 years)',
+        img: 'images/emotions-lifespan/ai-3.jpg',
+        imgCap: 'Feelings mediated by screens and peers.',
         items: [
           { t: 'Intensity & variability', d: 'Hormones, identity and social stress amplify swings.' },
           { t: 'Self-consciousness peaks', d: 'Embarrassment and pride intensify.' },
@@ -637,6 +655,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Adulthood (19–64 years)',
+        img: 'images/emotions-lifespan/web-2.jpg',
+        imgCap: 'Relationships anchor emotional life.',
         items: [
           { t: 'Stability rises', d: 'Emotional control and predictability improve through the 30s–50s.' },
           { t: 'Intimacy & generativity', d: 'Love, career and caregiving define emotional tasks (Erikson).' },
@@ -739,6 +759,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Pathophysiology',
+        img: 'images/parkinsons-disease/ai-3.jpg',
+        imgCap: 'The depleting dopaminergic synapse.',
         live: true,
         items: [
           { t: 'Neuronal loss', d: 'Symptoms appear after ~70–80% dopaminergic depletion.' },
@@ -804,6 +826,8 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Management overview',
+        img: 'images/parkinsons-disease/web-2.webp',
+        imgCap: 'Balance and gait training restore confidence.',
         items: [
           { t: 'Levodopa + carbidopa', d: 'Gold-standard dopamine replacement.' },
           { t: 'Adjuncts', d: 'Dopamine agonists, MAO-B and COMT inhibitors, anticholinergics.' },
