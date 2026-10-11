@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Runtime data (form submissions, subscribers) — generated at runtime
+server/data/messages.json
+server/data/subscribers.json
+server/data/activity.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Scratch image search downloads
+image-search/

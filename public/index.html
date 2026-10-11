@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviraj A. Veer — Seminar Presentations · B.Sc Nursing</title>
+  <meta name="description" content="Seminar presentation decks by Aviraj A. Veer, B.Sc Nursing 1st Semester, Krishna Institute of Nursing Science, Karad. Six themed, animated, classroom-ready presentations." />
+  <meta name="theme-color" content="#07080d" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307080d'/%3E%3Cpath d='M20 44V20h24M20 32h16' stroke='%2322d3ee' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/hub.css" />
+</head>
+<body class="hub-body">
+
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <canvas id="hub-canvas" aria-hidden="true"></canvas>
+
+  <!-- ======= Top bar ======= -->
+  <header class="hub-top">
+    <a href="#" class="hub-brand" data-cursor="hover">
+      <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.06)"/>
+        <path d="M20 44V20h24M20 32h16" stroke="#22d3ee" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Seminar<em>Deck</em></span>
+    </a>
+    <div class="hub-top-meta">
+      <span class="chip">B.Sc Nursing · Sem I</span>
+      <span class="chip chip-accent" id="deck-count-chip">6 decks</span>
+    </div>
+  </header>
+
+  <!-- ======= Hero ======= -->
+  <section class="hub-hero">
+    <div class="container">
+      <p class="hero-kicker reveal">Seminar presentations · 2026</p>
+      <h1 class="hero-title reveal">
+        Short, sharp talks.<br />
+        <span class="grad-line">Designed to be remembered.</span>
+      </h1>
+      <p class="hero-sub reveal">
+        A collection of classroom-ready seminar decks — each with its own visual theme,
+        curated imagery and a focused 7–10 minute storyline.
+      </p>
+
+      <div class="presenter-card reveal" id="presenter-card">
+        <div class="presenter-avatar" aria-hidden="true">AV</div>
+        <div class="presenter-info">
+          <strong id="p-name">Aviraj A. Veer</strong>
+          <span id="p-roll">Roll No. 38</span>
+        </div>
+        <div class="presenter-divider" aria-hidden="true"></div>
+        <div class="presenter-info">
+          <strong id="p-class">1st Semester, B.Sc Nursing</strong>
+          <span id="p-college">Krishna Institute of Nursing Science, Karad</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Decks grid ======= -->
+  <main class="hub-main">
+    <div class="container">
+      <div class="hub-grid-head reveal">
+        <h2>Choose a seminar</h2>
+        <p>Each card opens a complete themed seminar website — scroll it like a story, present it like a pro.</p>
+      </div>
+      <div id="seminar-grid" class="seminar-grid">
+        <div class="skel-card"></div>
+        <div class="skel-card"></div>
+        <div class="skel-card"></div>
+        <div class="skel-card"></div>
+        <div class="skel-card"></div>
+        <div class="skel-card"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer class="hub-footer">
+    <div class="container hub-footer-row">
+      <small>© 2026 · Aviraj A. Veer · Krishna Institute of Nursing Science, Karad</small>
+      <small class="hub-footer-hint">Every seminar is a scrolling, themed mini-website · <kbd>F</kbd>-free, just scroll & present</small>
+    </div>
+  </footer>
+
+  <script src="js/cursor.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/hub.js"></script>
+</body>
+</html>

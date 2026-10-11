@@ -1,0 +1,25 @@
+{
+  "name": "seminar-presentation-platform",
+  "version": "2.0.0",
+  "description": "Seminar presentation platform — six themed, animated, classroom-ready decks (Express API + interactive frontend) by Aviraj A. Veer.",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "keywords": [
+    "full-stack",
+    "express",
+    "animated",
+    "interactive",
+    "portfolio"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
