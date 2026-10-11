@@ -4,6 +4,7 @@
    ========================================================================== */
 (function () {
   const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const main = $('#sem-main');
   const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -29,6 +30,7 @@
     b.style.setProperty('--disp', FONTS[t.font] || FONTS.Fraunces);
     b.dataset.mode = t.mode || 'light';
     b.dataset.pattern = t.pattern || 'dots';
+    b.dataset.theme = deck ? deck.slug : '';
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', t.bg);
   }
@@ -48,7 +50,7 @@
   }
 
   function sectionFor(s, i) {
-    const num = String(i).padStart(2, '0');
+    const num = deck.slug === 'body-mechanics' ? `FIG.${String(i).padStart(2, '0')}` : String(i).padStart(2, '0');
     const alt = i % 2 === 0 ? ' alt' : '';
     let inner = '';
     switch (s.layout) {
@@ -108,6 +110,8 @@
       default:
         inner = head(s, num);
     }
+    // distribute the live animated model into its related section
+    if (s.live) inner += `<p class="live-kicker rv">${esc(LIVE_TITLES[deck.slug] || 'Live model')}</p>${liveBand(deck.slug).replace('class="lv-stage"', 'class="lv-stage rv"')}`;
     return `<section class="sem-section${alt}" id="sec-${i}"><div class="sem-wrap">${inner}</div></section>`;
   }
 
@@ -121,6 +125,9 @@
     'parkinsons-disease': 'Live model · tremor & dopamine',
   };
   function liveBand(slug) {
+    return `<div class="lv-stage">${liveSvg(slug)}</div>`;
+  }
+  function liveSvg(slug) {
     const A = 'var(--accent)';
     const M = 'var(--muted)';
     const svgs = {
@@ -198,9 +205,7 @@
           <path class="lv-float d2" d="M330 176 c -8 12 -8 20 0 24 c 8 -4 8 -12 0 -24 Z" stroke="${A}" stroke-width="3"/>
         </svg>`,
     };
-    return `
-      <p class="live-kicker">${esc(LIVE_TITLES[slug] || 'Live model')}</p>
-      <div class="lv-stage">${svgs[slug] || ''}</div>`;
+    return svgs[slug] || '';
   }
 
   /* ---------------- render ---------------- */
@@ -223,11 +228,6 @@
             <p class="sem-kicker rv">${esc(cover.kicker || deck.subject)}</p>
             <h1 class="sem-title rv">${esc(deck.title)}</h1>
             <p class="sem-sub rv">${esc(cover.subtitle)}</p>
-            <div class="sem-chips rv">
-              <span class="sem-chip"><b>${deck.slides.length}</b>&nbsp;sections</span>
-              <span class="sem-chip"><b>${deck.minutes}</b>&nbsp;seminar</span>
-              <span class="sem-chip">theme · <b>${deck.theme.name}</b></span>
-            </div>
             <div class="sem-presenter rv">
               <span class="sem-avatar">${initials()}</span>
               <div>
@@ -246,14 +246,14 @@
           <small>scroll</small>
         </a>
       </section>
-      ${kw ? `<div class="sem-marquee" aria-hidden="true"><div class="sem-marquee-track">${kw}${kw}</div></div>` : ''}
-      <section class="sem-live"><div class="sem-wrap rv">${liveBand(deck.slug)}</div></section>`;
+      ${kw ? `<div class="sem-marquee" aria-hidden="true"><div class="sem-marquee-track">${kw}${kw}</div></div>` : ''}`;
 
     rest.forEach((s, k) => {
       if (s.layout === 'end') return;
       html += sectionFor(s, k + 1);
     });
 
+    html += galleryHtml();
     html += `
       <section class="sem-close">
         <div class="sem-wrap">
@@ -275,6 +275,51 @@
     initReveal();
     initTilt();
     initChrome();
+  }
+
+  /* ---------------- gallery ---------------- */
+  function galleryHtml() {
+    if (!deck.gallery || !deck.gallery.length) return '';
+    return `
+      <section class="sem-section alt" id="sec-gallery">
+        <div class="sem-wrap">
+          <p class="sem-sec-kicker rv">${esc(deck.subject)}</p>
+          <h2 class="sem-sec-title rv">Visual gallery</h2>
+          <div class="gal-grid">
+            ${deck.gallery
+              .map(
+                (g) => `
+              <figure class="gal-card rv">
+                <div class="gal-img"><img src="/${g.image}" alt="${esc(g.caption)}" loading="lazy" /></div>
+                <figcaption>${esc(g.caption)}</figcaption>
+              </figure>`
+              )
+              .join('')}
+          </div>
+        </div>
+      </section>`;
+  }
+
+  /* ---------------- per-theme signature props ---------------- */
+  function addSignature() {
+    const slug = deck.slug;
+    if (slug === 'body-alignment') {
+      document.body.insertAdjacentHTML('beforeend', '<div class="plumb" aria-hidden="true"><span id="plumb-dot"></span></div>');
+    }
+    if (slug === 'emotions-lifespan') {
+      document.body.insertAdjacentHTML(
+        'afterbegin',
+        `<div class="stagebar" aria-hidden="true">
+          <span>Infancy</span><span>Childhood</span><span>Adolesc.</span><span>Adulthood</span><span>65+</span>
+        </div>`
+      );
+    }
+    if (slug === 'parkinsons-disease') {
+      $('#sem-minutes').insertAdjacentHTML(
+        'beforebegin',
+        `<span class="mini-ecg" aria-hidden="true"><svg viewBox="0 0 120 24" fill="none"><path class="lv-ecg" d="M0 12 h28 l4 -8 l4 14 l4 -6 h18 l3 -5 l3 7 l3 -5 l3 5 l3 -3 h47" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/></svg></span>`
+      );
+    }
   }
 
   /* ---------------- pager ---------------- */
@@ -370,12 +415,22 @@
     const art = $('.sem-hero-art');
     const o1 = $('.orb.o1');
     const o2 = $('.orb.o2');
+    const plumbDot = $('#plumb-dot');
+    const stageSpans = $$('.stagebar span');
     const onScroll = () => {
       const y = window.scrollY;
       top.classList.toggle('scrolled', y > 20);
       totop.classList.toggle('visible', y > 620);
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      prog.style.width = max > 0 ? `${(y / max) * 100}%` : '0%';
+      const p = max > 0 ? y / max : 0;
+      prog.style.width = `${p * 100}%`;
+      // signature: anatomy plumb-line marker
+      if (plumbDot) plumbDot.style.top = `${p * 100}%`;
+      // signature: life-stage progress zones
+      if (stageSpans.length) {
+        const z = Math.min(4, Math.floor(p * 5));
+        stageSpans.forEach((sp, i) => sp.classList.toggle('active', i <= z));
+      }
       // gentle scroll parallax
       if (y < window.innerHeight * 1.4) {
         if (art) art.style.transform = `translateY(${y * 0.07}px)`;
@@ -404,6 +459,7 @@
       applyTheme(deck.theme);
       document.title = `${deck.title} — ${presenter.name} · Seminar`;
       render();
+      addSignature();
     })
     .catch(() => {
       main.innerHTML = `

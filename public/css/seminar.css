@@ -601,6 +601,95 @@ body[data-pattern="ecg"]::before {
 .lv-bar { transform-origin: left center; animation: lvbar 5s ease-in-out infinite; }
 @keyframes lvbar { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(0.35); } }
 
+/* ==========================================================================
+   VISUAL GALLERY
+   ========================================================================== */
+.gal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 32px; }
+.gal-card { border: 1px solid var(--line); background: var(--card); border-radius: 20px; overflow: hidden; transition: transform 0.4s var(--ease-out), border-color 0.3s ease, box-shadow 0.4s ease; }
+.gal-card:hover { transform: translateY(-6px); border-color: color-mix(in srgb, var(--accent) 45%, transparent); box-shadow: 0 24px 60px -26px color-mix(in srgb, var(--accent) 50%, transparent); }
+.gal-img { overflow: hidden; height: min(38vh, 330px); }
+.gal-img img { width: 100%; height: 100%; object-fit: cover; animation: kb 15s ease-in-out infinite alternate; }
+.gal-card figcaption { padding: 14px 18px; font: 500 13px/1.4 var(--font-grotesk); color: var(--muted); display: flex; gap: 8px; align-items: baseline; }
+.gal-card figcaption::before { content: "◦"; color: var(--accent); }
+.live-inline { margin-top: 34px; }
+
+/* pulsing live dot on every section kicker */
+.sem-sec-kicker::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: lvpulse 2s ease-in-out infinite; }
+
+/* ==========================================================================
+   PER-TOPIC SIGNATURE DESIGNS
+   ========================================================================== */
+
+/* — Body Mechanics: engineering blueprint — */
+body[data-theme="body-mechanics"] .sem-hero-art .frame { border-style: dashed; }
+body[data-theme="body-mechanics"] .sem-num { font-family: var(--font-grotesk); font-size: clamp(2.6rem, 6vw, 4.6rem); letter-spacing: 0.06em; }
+body[data-theme="body-mechanics"] .sem-sec-kicker { letter-spacing: 0.3em; }
+
+/* — Body Alignment: anatomy plumb line — */
+.plumb { position: fixed; left: 30px; top: 16vh; bottom: 16vh; width: 2px; background: var(--line); z-index: 900; }
+.plumb::before, .plumb::after { content: ""; position: absolute; left: -4px; width: 10px; height: 2px; background: color-mix(in srgb, var(--accent) 55%, transparent); }
+.plumb::before { top: 0; }
+.plumb::after { bottom: 0; }
+#plumb-dot { position: absolute; left: -5px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 18%, transparent); transition: top 0.15s linear; }
+@media (max-width: 1100px) { .plumb { display: none; } }
+
+/* — Social Mobility: staircase layout — */
+body[data-theme="social-mobility"] #sem-toc a:nth-child(1) { margin-right: 70px; }
+body[data-theme="social-mobility"] #sem-toc a:nth-child(2) { margin-right: 56px; }
+body[data-theme="social-mobility"] #sem-toc a:nth-child(3) { margin-right: 42px; }
+body[data-theme="social-mobility"] #sem-toc a:nth-child(4) { margin-right: 28px; }
+body[data-theme="social-mobility"] #sem-toc a:nth-child(5) { margin-right: 14px; }
+body[data-theme="social-mobility"] .sem-section:nth-of-type(even) .sem-wrap { transform: translateX(2.5%); }
+body[data-theme="social-mobility"] .sem-section.alt { border-top: 3px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+
+/* — Emotions: organic waves + handwritten notes — */
+body[data-theme="emotional-development"] .sem-section.alt { position: relative; }
+body[data-theme="emotional-development"] .sem-section.alt::before {
+  content: ""; position: absolute; top: -13px; left: 0; right: 0; height: 14px;
+  background: radial-gradient(circle at 12px 14px, color-mix(in srgb, #fff 42%, transparent) 12px, transparent 13px);
+  background-size: 26px 14px; background-repeat: repeat-x;
+  pointer-events: none;
+}
+body[data-theme="emotional-development"] .split-cap,
+body[data-theme="emotional-development"] .gal-card figcaption,
+body[data-theme="emotional-development"] .sem-sub {
+  font-family: "Caveat", cursive; font-size: 1.25rem; letter-spacing: 0.01em;
+}
+
+/* — Life Span: stage progress bar — */
+.stagebar {
+  position: fixed; top: 3px; left: 0; right: 0; z-index: 949;
+  display: flex; height: 26px;
+  background: color-mix(in srgb, var(--bg) 70%, #fff);
+  border-bottom: 1px solid var(--line);
+}
+body[data-mode="dark"] .stagebar { background: color-mix(in srgb, var(--bg) 80%, #000); }
+.stagebar span {
+  flex: 1; display: grid; place-items: center;
+  font: 700 9.5px/1 var(--font-grotesk); letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); opacity: 0.55;
+  border-right: 1px dashed var(--line);
+  transition: all 0.4s ease;
+}
+.stagebar span:last-child { border-right: none; }
+.stagebar span.active { opacity: 1; color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); }
+body[data-theme="emotions-lifespan"] .sem-top { top: 29px; }
+body[data-theme="emotions-lifespan"] .sem-hero { padding-top: calc(120px + 8vh); }
+
+/* — Parkinson's: clinical night monitor — */
+body[data-theme="parkinsons-disease"]::after {
+  content: ""; position: fixed; inset: 0; z-index: 998; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 3px);
+}
+.mini-ecg { width: 96px; height: 22px; display: inline-block; }
+.mini-ecg svg { width: 100%; height: 100%; }
+body[data-theme="parkinsons-disease"] .sem-subject::before {
+  content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent); margin-right: 8px; vertical-align: 1px;
+  animation: lvfade 1.2s steps(2, jump-none) infinite;
+}
+@media (max-width: 700px) { .mini-ecg { display: none; } }
+
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .sem-hero-grid { grid-template-columns: 1fr; }
@@ -612,4 +701,7 @@ body[data-pattern="ecg"]::before {
   .sem-pager { grid-template-columns: 1fr; }
   .pager-card.hidden { display: none; }
   .sem-num { top: 70px; }
+  .gal-grid { grid-template-columns: 1fr; }
+  .stagebar span { font-size: 8px; letter-spacing: 0.08em; }
+  .plumb { display: none; }
 }

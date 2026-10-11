@@ -27,7 +27,13 @@ AI-generated illustrations**, wrapped in a minimalist, modern, animated UI.
   scroll-spy, numbered story sections, image splits, card grids, correlation
   table, summary checklist, references and prev/next seminar pager
 - **Interactions** — custom cursor, scroll-reveal animations, tilt-on-hover
-  cards, parallax hero art hover, scroll progress bar, back-to-top
+  cards, parallax hero art, scroll progress bar, back-to-top
+- **5–6 images per seminar** (web photos + AI art) incl. a visual gallery
+- **Live animated models embedded inside their relevant sections**
+- **Per-topic signature design**: blueprint FIG. numbers (Body Mechanics),
+  anatomy plumb-line scroll marker (Alignment), staircase TOC (Mobility),
+  wave scallops + handwritten notes (Emotions), life-stage progress bar
+  (Life Span), night-monitor scanlines + live ECG (Parkinson's)
 - **Presenter identity everywhere** — name · Roll No. 38 · college on hero,
   closing block and footer of every seminar
 - Responsive and `prefers-reduced-motion` aware

@@ -27,6 +27,10 @@ const SEMINARS = [
       keywords: ['Balance', 'Base of support', 'Center of gravity', 'Lift with legs', 'Never twist', 'Safe transfers', 'Body mechanics'],
     },
     images: { web: 'images/body-mechanics/web-1.jpg', ai: 'images/body-mechanics/ai-1.jpg', extra: 'images/body-mechanics/ai-2.jpg' },
+    gallery: [
+      { image: 'images/body-mechanics/ai-3.jpg', caption: 'The protected lumbar curve' },
+      { image: 'images/body-mechanics/web-2.png', caption: 'Bed positions & repositioning care' },
+    ],
     slides: [
       { layout: 'cover', kicker: 'Nursing Foundation · Seminar', title: 'Principles of Body Mechanics', subtitle: 'Moving safely, lifting smartly — the physics of safe nursing care.', image: 'ai' },
       {
@@ -62,6 +66,7 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Core principles — position',
+        live: true,
         items: [
           { t: 'Widen your base of support', d: 'Feet shoulder-width apart, one foot slightly forward.' },
           { t: 'Lower your center of gravity', d: 'Bend at the hips and knees — never at the waist alone.' },
@@ -168,6 +173,10 @@ const SEMINARS = [
       keywords: ['Posture', 'Alignment', 'Mobility', 'ROM exercise', 'Early ambulation', 'Activity tolerance', 'Immobility'],
     },
     images: { web: 'images/body-alignment/web-1.jpg', ai: 'images/body-alignment/ai-1.jpg', extra: 'images/body-alignment/extra-1.jpg' },
+    gallery: [
+      { image: 'images/body-alignment/ai-3.jpg', caption: 'Daily movement keeps alignment' },
+      { image: 'images/body-alignment/web-2.jpg', caption: 'Wheelchair mobility extends activity' },
+    ],
     slides: [
       { layout: 'cover', kicker: 'Nursing Foundation · Seminar', title: 'Factors Affecting Body Alignment & Activity', subtitle: 'Why posture and mobility differ from person to person — and what a nurse can do.', image: 'ai' },
       {
@@ -233,6 +242,7 @@ const SEMINARS = [
       {
         layout: 'split',
         title: 'Nursing assessment',
+        live: true,
         items: [
           { t: 'Observe posture & gait', d: 'Standing, sitting, walking — note deviations.' },
           { t: 'Range of motion', d: 'Test major joints; compare both sides.' },
@@ -297,6 +307,10 @@ const SEMINARS = [
       keywords: ['Sorokin', 'Horizontal', 'Vertical', 'Upward', 'Downward', 'Inter-generational', 'Open society', 'Education'],
     },
     images: { web: 'images/social-mobility/web-1.jpg', ai: 'images/social-mobility/ai-1.jpg', extra: 'images/social-mobility/ai-2.jpg' },
+    gallery: [
+      { image: 'images/social-mobility/web-2.jpg', caption: 'Graduation — a classic upward step' },
+      { image: 'images/social-mobility/ai-3.jpg', caption: 'Cities as ladders of opportunity' },
+    ],
     slides: [
       { layout: 'cover', kicker: 'Applied Sociology · Seminar', title: 'Social Mobility: Meaning and Types', subtitle: 'How individuals and groups move between social positions — and why it matters.', image: 'ai' },
       {
@@ -322,6 +336,7 @@ const SEMINARS = [
       {
         layout: 'grid',
         title: 'Two fundamental types',
+        live: true,
         cards: [
           { t: 'Horizontal mobility', d: 'Change of position at the same rank — a staff nurse joining another hospital at the same grade.' },
           { t: 'Vertical mobility', d: 'Change of rank — a ward assistant becoming a nurse officer; a business owner facing bankruptcy.' },
@@ -419,6 +434,10 @@ const SEMINARS = [
       keywords: ['Social smile', 'Attachment', 'Stranger anxiety', 'Empathy', 'Regulation', 'Temperament', 'Secure base'],
     },
     images: { web: 'images/emotional-development/web-1.webp', ai: 'images/emotional-development/ai-1.jpg', extra: 'images/emotional-development/ai-2.jpg' },
+    gallery: [
+      { image: 'images/emotional-development/web-2.jpg', caption: 'Co-regulation: comfort teaches calm' },
+      { image: 'images/emotional-development/ai-3.jpg', caption: 'Naming feelings together' },
+    ],
     slides: [
       { layout: 'cover', kicker: 'Applied Psychology · Seminar', title: 'Development of Emotions', subtitle: 'How feeling life is built — from the first cry to emotional maturity.', image: 'ai' },
       {
@@ -453,6 +472,7 @@ const SEMINARS = [
       {
         layout: 'split',
         title: 'Infancy: the first emotions',
+        live: true,
         items: [
           { t: 'Birth', d: 'Distress and contentment are present.' },
           { t: '6–8 weeks', d: 'The social smile appears.' },
@@ -548,6 +568,10 @@ const SEMINARS = [
       keywords: ['Infancy', 'Childhood', 'Adolescence', 'Adulthood', 'Older age', 'Positivity effect', 'Attachment'],
     },
     images: { web: 'images/emotions-lifespan/web-1.webp', ai: 'images/emotions-lifespan/ai-1.jpg', extra: 'images/emotions-lifespan/extra-1.jpg' },
+    gallery: [
+      { image: 'images/emotions-lifespan/web-2.jpg', caption: 'Emotional wisdom in later life' },
+      { image: 'images/emotions-lifespan/ai-3.jpg', caption: 'Adolescent emotions, digitally mediated' },
+    ],
     slides: [
       { layout: 'cover', kicker: 'Applied Psychology · Seminar', title: 'Emotional Development Across the Life Span', subtitle: 'A journey from the first social smile to the wisdom of age.', image: 'ai' },
       {
@@ -557,6 +581,7 @@ const SEMINARS = [
       {
         layout: 'definition',
         term: 'Life-Span Perspective',
+        live: true,
         text: 'Emotional development does not stop at childhood — growth, change and refinement of feeling continue from birth to old age.',
         highlight: 'Development is lifelong, multidirectional and plastic.',
       },
@@ -684,6 +709,10 @@ const SEMINARS = [
       keywords: ['Substantia nigra', 'Dopamine', 'TRAP', 'Lewy bodies', 'Levodopa', 'Bradykinesia', 'Tulip'],
     },
     images: { web: 'images/parkinsons-disease/web-1.jpg', ai: 'images/parkinsons-disease/ai-1.jpg', extra: 'images/parkinsons-disease/extra-1.jpg' },
+    gallery: [
+      { image: 'images/parkinsons-disease/ai-3.jpg', caption: 'The depleting dopaminergic synapse' },
+      { image: 'images/parkinsons-disease/web-2.webp', caption: 'Balance & gait training in therapy' },
+    ],
     slides: [
       { layout: 'cover', kicker: 'B.Sc Nursing · Seminar 2026', title: 'Parkinson’s Disease', subtitle: 'Anatomical and clinical correlation — from the substantia nigra to the bedside.', image: 'ai' },
       {
@@ -710,6 +739,7 @@ const SEMINARS = [
       {
         layout: 'bullets',
         title: 'Pathophysiology',
+        live: true,
         items: [
           { t: 'Neuronal loss', d: 'Symptoms appear after ~70–80% dopaminergic depletion.' },
           { t: 'Lewy bodies', d: 'α-synuclein protein inclusions — the pathological hallmark.' },
