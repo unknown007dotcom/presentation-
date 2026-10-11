@@ -71,8 +71,9 @@ const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 app.use(
   express.static(PUBLIC_DIR, {
     extensions: ['html'],
-    setHeaders(res, filePath) {
-      if (filePath.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache');
+    // Dev-friendly: never let browsers/proxies serve stale assets
+    setHeaders(res) {
+      res.setHeader('Cache-Control', 'no-store, max-age=0');
     },
   })
 );
